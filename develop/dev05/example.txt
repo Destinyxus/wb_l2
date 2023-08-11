@@ -1,0 +1,9 @@
+Hi
+this
+is test file
+to carry out few regular expressions
+practical with grep
+apple
+123 456
+Abcd
+ABCD
