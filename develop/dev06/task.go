@@ -36,11 +36,11 @@ func main() {
 
 func cutByDelimiter(arr []string, delimiter string) {
 	var fields []string
-
 	for _, line := range arr {
+
 		parts := strings.Split(line, delimiter)
 
-		if flagS && !containsDelimiter(parts) {
+		if flagS && !strings.Contains(line, delimiter) {
 			continue
 		}
 		var extractedFields []string
@@ -48,6 +48,7 @@ func cutByDelimiter(arr []string, delimiter string) {
 		for _, fieldNum := range fieldNums {
 
 			if fieldNum > 0 && fieldNum <= len(parts) {
+
 				extractedFields = append(extractedFields, strings.TrimSpace(parts[fieldNum-1]))
 			}
 
@@ -60,15 +61,6 @@ func cutByDelimiter(arr []string, delimiter string) {
 	if len(fields) > 0 {
 		fmt.Println(strings.Join(fields, "\n"))
 	}
-}
-
-func containsDelimiter(parts []string) bool {
-	for _, part := range parts {
-		if strings.TrimSpace(part) != "" {
-			return true
-		}
-	}
-	return false
 }
 
 func parseFieldNumbers() {
