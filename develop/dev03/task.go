@@ -12,7 +12,7 @@ import (
 
 type Line struct {
 	Text     string
-	SortKey  interface{} // We use interface{} to hold both strings and numbers
+	SortKey  interface{}
 	Original string
 }
 

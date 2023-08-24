@@ -27,11 +27,9 @@ func unpackString(input string) string {
 					stack = append(stack, '\\')
 				}
 			} else {
-				// If the backslash is at the end of the input, treat it as a literal backslash
 				stack = append(stack, '\\')
 			}
 		} else if unicode.IsDigit(rune(currentChar)) {
-			// Handle numeric counts
 			count := int(currentChar - '0')
 			for i+1 < len(input) && unicode.IsDigit(rune(input[i+1])) {
 				i++
@@ -44,7 +42,6 @@ func unpackString(input string) string {
 				stack = append(stack, []rune(strings.Repeat(string(lastChar), count))...)
 			}
 		} else {
-			// Handle regular characters
 			stack = append(stack, rune(currentChar))
 		}
 
